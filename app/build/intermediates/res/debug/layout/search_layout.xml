@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="#626465"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:text="\n\t\tSearch"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:background="#3fa9f5"
+        />
+
+    <EditText
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:hint="Restaurant Name"
+        android:autoText="false"
+        android:singleLine="true"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="245dp"
+            android:layout_marginRight="5dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="25dp"
+            android:hint="City"
+            android:autoText="false"
+            android:singleLine="true"
+            android:id="@+id/city" />
+
+        <EditText
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:hint="Zip"
+            android:inputType="number"
+            android:autoText="false"
+            android:singleLine="true"
+            android:layout_alignTop="@+id/city"
+            android:layout_toRightOf="@+id/city"
+            android:layout_toEndOf="@+id/city" />
+
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Party Size"
+            android:fontFamily="sans-serif-light"
+            android:textSize="25dp"
+            android:textColor="#3fa9f5"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="40dp"
+            android:id="@+id/textView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wait Time"
+            android:fontFamily="sans-serif-light"
+            android:textSize="25dp"
+            android:textColor="#3fa9f5"
+            android:layout_marginRight="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_alignTop="@+id/textView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/partysize"
+            android:layout_gravity="center_horizontal" />
+
+        <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/numberPicker"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="62dp"
+            android:layout_marginEnd="60dp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:textSize="15dp"
+        android:textColor="#ffffff"
+        android:background="#ff6b35"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        />
+
+</LinearLayout>
+<!-- From: file:/C:/Users/Noemi/AndroidStudioProjects/Waiter/app/src/main/res/layout/search_layout.xml -->

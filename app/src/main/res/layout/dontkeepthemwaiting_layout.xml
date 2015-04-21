@@ -31,16 +31,17 @@
             android:layout_marginLeft="51dp"
             android:layout_marginStart="51dp"
             android:layout_marginTop="60dp"
-            android:id="@+id/button2" />
+            android:id="@+id/option1" />
 
         <Button
+            android:id="@+id/option2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="POST"
             android:textSize="15dp"
             android:textColor="#ffffff"
             android:background="#accb12"
-            android:layout_alignTop="@+id/button2"
+            android:layout_alignTop="@+id/option1"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="51dp"

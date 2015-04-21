@@ -11,6 +11,12 @@
             </intent-filter>
             </activity>
         <activity android:name=".WaitingActivity"></activity>
+        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".AccountSettingsActivity"></activity>
+        <activity android:name=".UsernameSettingsActivity"></activity>
+        <activity android:name=".PasswordSettingsActivity"></activity>
+        <activity android:name=".SearchActivity"></activity>
+
     </application>
 
 </manifest>

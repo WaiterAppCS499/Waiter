@@ -23,6 +23,14 @@ public class HomeActivity extends Activity{
                 startActivity(intent);
             }
         });
+
+        Button button2 = (Button) findViewById(R.id.signup);
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+                Intent intent = new Intent(HomeActivity.this, SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
