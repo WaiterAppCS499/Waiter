@@ -65,6 +65,30 @@ activity#com.example.noemi.waiter.SearchActivity
 ADDED from AndroidManifest.xml:18:9
 	android:name
 		ADDED from AndroidManifest.xml:18:19
+activity#com.example.noemi.waiter.PostActivity
+ADDED from AndroidManifest.xml:19:9
+	android:name
+		ADDED from AndroidManifest.xml:19:19
+activity#com.example.noemi.waiter.ResultsActivity
+ADDED from AndroidManifest.xml:20:9
+	android:name
+		ADDED from AndroidManifest.xml:20:19
+activity#com.example.noemi.waiter.PostsActivity
+ADDED from AndroidManifest.xml:21:9
+	android:name
+		ADDED from AndroidManifest.xml:21:19
+activity#com.example.noemi.waiter.PostedActivity
+ADDED from AndroidManifest.xml:22:9
+	android:name
+		ADDED from AndroidManifest.xml:22:19
+activity#com.example.noemi.waiter.NearbyActivity
+ADDED from AndroidManifest.xml:23:9
+	android:name
+		ADDED from AndroidManifest.xml:23:19
+activity#com.example.noemi.waiter.FavoritesActivity
+ADDED from AndroidManifest.xml:24:9
+	android:name
+		ADDED from AndroidManifest.xml:24:19
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:22.0.0:20:5

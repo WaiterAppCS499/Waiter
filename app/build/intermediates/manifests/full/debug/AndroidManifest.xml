@@ -28,6 +28,12 @@
         <activity android:name="com.example.noemi.waiter.UsernameSettingsActivity" />
         <activity android:name="com.example.noemi.waiter.PasswordSettingsActivity" />
         <activity android:name="com.example.noemi.waiter.SearchActivity" />
+        <activity android:name="com.example.noemi.waiter.PostActivity" />
+        <activity android:name="com.example.noemi.waiter.ResultsActivity" />
+        <activity android:name="com.example.noemi.waiter.PostsActivity" />
+        <activity android:name="com.example.noemi.waiter.PostedActivity" />
+        <activity android:name="com.example.noemi.waiter.NearbyActivity" />
+        <activity android:name="com.example.noemi.waiter.FavoritesActivity" />
     </application>
 
 </manifest>

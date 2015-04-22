@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:text="\n\t\tResults"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:background="#3fa9f5"
+        />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:id="@+id/resultlist">
+        </ListView>
+
+    <Button
+        android:id="@+id/refine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Refine"
+        android:textSize="15dp"
+        android:textColor="#ffffff"
+        android:background="#ff6b35"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        />
+
+</LinearLayout>
+<!-- From: file:/C:/Users/Noemi/AndroidStudioProjects/Waiter/app/src/main/res/layout/results_layout.xml -->

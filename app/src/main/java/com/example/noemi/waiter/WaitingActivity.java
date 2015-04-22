@@ -23,5 +23,14 @@ public class WaitingActivity extends Activity{
                 startActivity(intent);
             }
         });
+
+        Button button2 = (Button) findViewById(R.id.option2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WaitingActivity.this, PostActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

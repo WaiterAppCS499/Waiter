@@ -1310,6 +1310,7 @@ containing a value of this type.
         public static final int abc_textfield_search_material=0x7f020036;
     }
     public static final class id {
+        public static final int LinearLayout01=0x7f09004c;
         public static final int action_bar=0x7f090031;
         public static final int action_bar_activity_content=0x7f090000;
         public static final int action_bar_container=0x7f090030;
@@ -1345,21 +1346,25 @@ containing a value of this type.
         public static final int icon=0x7f090026;
         public static final int ifRoom=0x7f090018;
         public static final int image=0x7f090023;
-        public static final int join=0x7f09004c;
+        public static final int join=0x7f090052;
         public static final int listMode=0x7f090009;
         public static final int list_item=0x7f090025;
         public static final int middle=0x7f090015;
         public static final int never=0x7f090019;
         public static final int none=0x7f09000e;
         public static final int normal=0x7f09000a;
-        public static final int numberPicker=0x7f09004a;
         public static final int option1=0x7f090042;
         public static final int option2=0x7f090043;
-        public static final int partysize=0x7f090049;
+        public static final int partysize=0x7f09004f;
+        public static final int post=0x7f09004b;
+        public static final int postingsize=0x7f090049;
+        public static final int postingtime=0x7f09004a;
         public static final int progress_circular=0x7f090005;
         public static final int progress_horizontal=0x7f090006;
         public static final int radio=0x7f09002b;
-        public static final int search=0x7f09004b;
+        public static final int refine=0x7f09004e;
+        public static final int resultlist=0x7f09004d;
+        public static final int search=0x7f090051;
         public static final int search_badge=0x7f090035;
         public static final int search_bar=0x7f090034;
         public static final int search_button=0x7f090036;
@@ -1384,8 +1389,9 @@ containing a value of this type.
         public static final int up=0x7f090008;
         public static final int updateaccount=0x7f090041;
         public static final int updatepassword=0x7f090046;
-        public static final int updateusername=0x7f09004d;
+        public static final int updateusername=0x7f090053;
         public static final int useLogo=0x7f090012;
+        public static final int waittime=0x7f090050;
         public static final int withText=0x7f09001a;
         public static final int wrap_content=0x7f09001d;
     }
@@ -1421,10 +1427,13 @@ containing a value of this type.
         public static final int dontkeepthemwaiting_layout=0x7f040017;
         public static final int home_layout=0x7f040018;
         public static final int password_settings=0x7f040019;
-        public static final int search_layout=0x7f04001a;
-        public static final int signuppage_layout=0x7f04001b;
-        public static final int support_simple_spinner_dropdown_item=0x7f04001c;
-        public static final int usernamesettings_layout=0x7f04001d;
+        public static final int post_layout=0x7f04001a;
+        public static final int posts_layout=0x7f04001b;
+        public static final int results_layout=0x7f04001c;
+        public static final int search_layout=0x7f04001d;
+        public static final int signuppage_layout=0x7f04001e;
+        public static final int support_simple_spinner_dropdown_item=0x7f04001f;
+        public static final int usernamesettings_layout=0x7f040020;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;

@@ -22,15 +22,33 @@ public class SearchActivity extends Activity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SearchActivity.this, WaitingActivity.class);
+                Intent intent = new Intent(SearchActivity.this, ResultsActivity.class);
                 startActivity(intent);
             }
         });
 
         NumberPicker partysize = (NumberPicker) findViewById(R.id.partysize);
-        partysize.setOnClickListener(new View.OnClickListener() {
+
+        partysize.setMinValue(1);
+        partysize.setMaxValue(10);
+        partysize.setWrapSelectorWheel(true);
+
+        partysize.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
-            public void onClick(View v) {
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+
+            }
+        });
+
+        NumberPicker waittime = (NumberPicker) findViewById(R.id.waittime);
+
+        waittime.setMinValue(1);
+        waittime.setMaxValue(240);
+        waittime.setWrapSelectorWheel(true);
+
+        waittime.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
 
             }
         });
