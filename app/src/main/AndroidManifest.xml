@@ -2,7 +2,7 @@
     package="com.example.noemi.waiter">
 
     <application android:allowBackup="true" android:label="@string/app_name"
-        android:icon="@mipmap/ic_launcher" android:theme="@style/AppTheme" >
+        android:icon="@mipmap/ic_launcher" android:theme="@style/AppTheme" android:name="ParseApplication">
         <activity android:name=".HomeActivity"
             android:label="@string/app_name">
             <intent-filter>
@@ -22,6 +22,10 @@
         <activity android:name=".PostedActivity"></activity>
         <activity android:name=".NearbyActivity"></activity>
         <activity android:name=".FavoritesActivity"></activity>
+
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

@@ -19,6 +19,7 @@
         android:textColor="#3fa9f5"/>
 
     <EditText
+        android:id="@+id/firstname"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -29,6 +30,7 @@
         />
 
     <EditText
+        android:id="@+id/lastname"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -39,6 +41,7 @@
         />
 
     <EditText
+        android:id="@+id/email"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -50,6 +53,7 @@
         />
 
     <EditText
+        android:id="@+id/susername"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -60,6 +64,7 @@
         />
 
     <EditText
+        android:id="@+id/spassword"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

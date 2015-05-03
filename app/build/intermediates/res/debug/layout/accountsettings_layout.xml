@@ -16,7 +16,18 @@
         android:background="#3fa9f5"
         />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:id="@+id/home"
+        android:layout_gravity="right"
+        android:textColor="#3fa9f5"
+        android:fontFamily="sans-serif-light"/>
+
     <EditText
+        android:id="@+id/state"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -27,6 +38,7 @@
         />
 
     <EditText
+        android:id="@+id/city"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

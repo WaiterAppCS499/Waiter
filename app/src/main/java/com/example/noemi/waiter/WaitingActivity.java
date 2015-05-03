@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.parse.ParseUser;
+
 /**
  * Created by Noemi on 4/14/2015.
  */
@@ -29,6 +31,25 @@ public class WaitingActivity extends Activity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(WaitingActivity.this, PostActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button button3 = (Button) findViewById(R.id.settings);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WaitingActivity.this, AccountSettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button button4 = (Button) findViewById(R.id.logout);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseUser.logOut();
+                Intent intent = new Intent(WaitingActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });

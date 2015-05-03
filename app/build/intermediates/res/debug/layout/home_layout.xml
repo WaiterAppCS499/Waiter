@@ -17,6 +17,7 @@
         android:fontFamily="sans-serif-light"/>
 
     <EditText
+        android:id="@+id/username"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -27,6 +28,7 @@
         />
 
     <EditText
+        android:id="@+id/password"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -37,14 +39,14 @@
         android:singleLine="true"
         />
 
-    <TextView
+    <Button
+        android:id="@+id/forgotpw"
         android:text="Forgot Password?"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="0dp"
-        android:textSize="15dp"
+        android:fontFamily="sans-serif-light"
         android:textColor="#ff0d2af5" />
 
     <RelativeLayout
