@@ -18,6 +18,7 @@
         />
 
     <EditText
+        android:id="@+id/searchname"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -41,9 +42,10 @@
             android:hint="City"
             android:autoText="false"
             android:singleLine="true"
-            android:id="@+id/city" />
+            android:id="@+id/scity" />
 
         <EditText
+            android:id="@+id/szip"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -51,9 +53,9 @@
             android:inputType="number"
             android:autoText="false"
             android:singleLine="true"
-            android:layout_alignTop="@+id/city"
-            android:layout_toRightOf="@+id/city"
-            android:layout_toEndOf="@+id/city" />
+            android:layout_alignTop="@+id/scity"
+            android:layout_toRightOf="@+id/scity"
+            android:layout_toEndOf="@+id/scity" />
 
         </RelativeLayout>
 

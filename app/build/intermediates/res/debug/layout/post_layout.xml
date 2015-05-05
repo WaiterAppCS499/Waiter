@@ -18,6 +18,7 @@
         />
 
     <EditText
+        android:id="@+id/restaurantname"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -44,6 +45,7 @@
             android:id="@+id/city" />
 
         <EditText
+            android:id="@+id/zip"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
