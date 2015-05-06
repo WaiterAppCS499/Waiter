@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:text="\n\t\tAccount Settings"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:background="#3fa9f5"
+        />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:id="@+id/home"
+        android:layout_gravity="right"
+        android:textColor="#3fa9f5"
+        android:fontFamily="sans-serif-light"/>
+
+    <EditText
+        android:id="@+id/state"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:hint="State"
+        android:autoText="false"
+        android:singleLine="true"
+        />
+
+    <EditText
+        android:id="@+id/city"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:hint="City"
+        android:autoText="false"
+        android:singleLine="true"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/changeusername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change \nUsername"
+            android:textSize="15dp"
+            android:layout_gravity="center"
+            android:background="#accb12"
+            android:textColor="#ffffff"
+            android:padding="10dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginStart="48dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="45dp" />
+
+        <Button
+            android:id="@+id/changepassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change \nPassword"
+            android:textSize="15dp"
+            android:layout_gravity="center"
+            android:background="#accb12"
+            android:textColor="#ffffff"
+            android:padding="10dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_alignTop="@+id/changeusername"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/updateaccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:textSize="15dp"
+        android:textColor="#ffffff"
+        android:background="#3fa9f5"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        />
+
+</LinearLayout>
+<!-- From: file:/C:/Users/Noemi/AndroidStudioProjects/Waiter/app/src/main/res/layout/accountsettings_layout.xml -->

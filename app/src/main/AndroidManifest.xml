@@ -1,27 +1,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.noemi.waiter">
+    package="my.app.noemi.waiter">
 
     <application android:allowBackup="true" android:label="@string/app_name"
-        android:icon="@mipmap/ic_launcher" android:theme="@style/AppTheme" android:name="ParseApplication">
-        <activity android:name=".HomeActivity"
+        android:icon="@mipmap/ic_launcher" android:theme="@style/AppTheme" android:name="my.app.noemi.waiter.ParseApplication">
+        <activity android:name="my.app.noemi.waiter.HomeActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             </activity>
-        <activity android:name=".WaitingActivity"></activity>
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".AccountSettingsActivity"></activity>
-        <activity android:name=".UsernameSettingsActivity"></activity>
-        <activity android:name=".PasswordSettingsActivity"></activity>
-        <activity android:name=".SearchActivity"></activity>
-        <activity android:name=".PostActivity"></activity>
-        <activity android:name=".ResultsActivity"></activity>
-        <activity android:name=".PostsActivity"></activity>
-        <activity android:name=".PostedActivity"></activity>
-        <activity android:name=".NearbyActivity"></activity>
-        <activity android:name=".FavoritesActivity"></activity>
+        <activity android:name="my.app.noemi.waiter.WaitingActivity"></activity>
+        <activity android:name="my.app.noemi.waiter.SignUpActivity"></activity>
+        <activity android:name="my.app.noemi.waiter.AccountSettingsActivity"></activity>
+        <activity android:name="my.app.noemi.waiter.UsernameSettingsActivity"></activity>
+        <activity android:name="my.app.noemi.waiter.PasswordSettingsActivity"></activity>
+        <activity android:name="my.app.noemi.waiter.SearchActivity"></activity>
+        <activity android:name="my.app.noemi.waiter.PostActivity"></activity>
+        <activity android:name="my.app.noemi.waiter.ResultsActivity"></activity>
+        <activity android:name="my.app.noemi.waiter.PostsActivity"></activity>
+        <activity android:name="my.app.noemi.waiter.PostedActivity"></activity>
+        <activity android:name="my.app.noemi.waiter.NearbyActivity"></activity>
+        <activity android:name="my.app.noemi.waiter.FavoritesActivity"></activity>
 
     </application>
 
