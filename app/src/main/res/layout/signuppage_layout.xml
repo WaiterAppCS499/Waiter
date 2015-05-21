@@ -81,7 +81,7 @@
         android:text="Sign up"
         android:textSize="15dp"
         android:textColor="#ffffff"
-        android:background="#3fa9f5"
+        android:background="@drawable/buttons_blue"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"/>
 

@@ -6,26 +6,6 @@
     android:orientation="vertical"
     android:background="#ffffff">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:text="\n\t\tAccount Settings"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:textColor="#ffffff"
-        android:background="#3fa9f5"
-        />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:id="@+id/home"
-        android:layout_gravity="right"
-        android:textColor="#3fa9f5"
-        android:fontFamily="sans-serif-light"/>
-
     <EditText
         android:id="@+id/state"
         android:layout_width="340dp"
@@ -58,7 +38,7 @@
             android:text="Change \nUsername"
             android:textSize="15dp"
             android:layout_gravity="center"
-            android:background="#accb12"
+            android:background="@drawable/buttons_green"
             android:textColor="#ffffff"
             android:padding="10dp"
             android:layout_marginLeft="48dp"
@@ -75,7 +55,7 @@
             android:text="Change \nPassword"
             android:textSize="15dp"
             android:layout_gravity="center"
-            android:background="#accb12"
+            android:background="@drawable/buttons_green"
             android:textColor="#ffffff"
             android:padding="10dp"
             android:layout_marginRight="48dp"
@@ -92,7 +72,7 @@
         android:text="Update"
         android:textSize="15dp"
         android:textColor="#ffffff"
-        android:background="#3fa9f5"
+        android:background="@drawable/buttons_blue"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
         />

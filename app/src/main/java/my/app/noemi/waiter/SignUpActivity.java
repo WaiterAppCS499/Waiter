@@ -3,6 +3,7 @@ package my.app.noemi.waiter;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,10 +17,14 @@ import com.parse.SignUpCallback;
  * Created by Noemi on 4/20/2015.
  */
 public class SignUpActivity extends Activity {
+    private Vibrator vb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signuppage_layout);
+
+        vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
         final EditText firstname = (EditText) findViewById(R.id.firstname);
         final EditText lastname = (EditText) findViewById(R.id.lastname);
@@ -31,6 +36,7 @@ public class SignUpActivity extends Activity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vb.vibrate(50);
                 String first = firstname.getText().toString();
                 String last = lastname.getText().toString();
                 String mail = email.getText().toString();

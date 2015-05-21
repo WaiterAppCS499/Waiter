@@ -3,6 +3,7 @@ package my.app.noemi.waiter;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -17,9 +18,13 @@ import com.parse.ParseUser;
  * Created by Noemi on 4/14/2015.
  */
 public class HomeActivity extends Activity{
+    private Vibrator vb;
+
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.home_layout);
+
+        vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
         final EditText username = (EditText) findViewById(R.id.username);
         final EditText password = (EditText) findViewById(R.id.password);
@@ -28,6 +33,7 @@ public class HomeActivity extends Activity{
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vb.vibrate(50);
                 String uname = username.getText().toString();
                 String pword = password.getText().toString();
                 ParseUser.logInInBackground(uname, pword, new LogInCallback() {
@@ -47,6 +53,7 @@ public class HomeActivity extends Activity{
         Button button2 = (Button) findViewById(R.id.signup);
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
+                vb.vibrate(50);
                 Intent intent = new Intent(HomeActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
@@ -56,7 +63,8 @@ public class HomeActivity extends Activity{
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, PasswordSettingsActivity.class);
+                vb.vibrate(50);
+                Intent intent = new Intent(HomeActivity.this, ForgotPassword.class);
                 startActivity(intent);
             }
         });

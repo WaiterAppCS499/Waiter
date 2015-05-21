@@ -3,8 +3,17 @@ package my.app.noemi.waiter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Vibrator;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -19,7 +28,8 @@ import com.parse.ParseQueryAdapter;
 /**
  * Created by Noemi on 4/21/2015.
  */
-public class ResultsActivity extends Activity{
+public class ResultsActivity extends ActionBarActivity {
+    private Vibrator vb;
 
     private ParseQueryAdapter<Waittime> mainAdapter;
     private LayoutInflater inflater;
@@ -28,6 +38,13 @@ public class ResultsActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.results_layout);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Results");
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3fa9f5")));
+
+        vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
         ParseQueryAdapter.QueryFactory<Waittime> factory = new ParseQueryAdapter.QueryFactory<Waittime>(){
             public ParseQuery<Waittime> create(){
@@ -60,6 +77,7 @@ public class ResultsActivity extends Activity{
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vb.vibrate(50);
                 Intent intent = new Intent(ResultsActivity.this, SearchActivity.class);
                 startActivity(intent);
             }
@@ -92,6 +110,50 @@ public class ResultsActivity extends Activity{
     private static class ViewHolder{
         TextView waittimeName;
     }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.settings, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        switch(id){
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private ActionMode.Callback modeCallback = new ActionMode.Callback() {
+        @Override
+        public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+            actionMode.setTitle("Results");
+            actionMode.getMenuInflater().inflate(R.menu.settings, menu);
+            return false;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
+            int id = menuItem.getItemId();
+
+
+            return false;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode actionMode) {
+
+        }
+    };
 }
 
 

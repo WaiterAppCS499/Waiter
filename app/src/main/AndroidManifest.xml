@@ -1,31 +1,51 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="my.app.noemi.waiter">
 
-    <application android:allowBackup="true" android:label="@string/app_name"
-        android:icon="@mipmap/ic_launcher" android:theme="@style/AppTheme" android:name="my.app.noemi.waiter.ParseApplication">
-        <activity android:name="my.app.noemi.waiter.HomeActivity"
+    <application android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/MyTheme"
+        android:name="my.app.noemi.waiter.ParseApplication">
+
+        <activity
+            android:name="my.app.noemi.waiter.HomeActivity"
             android:label="@string/app_name">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            </activity>
+        </activity>
+
         <activity android:name="my.app.noemi.waiter.WaitingActivity"></activity>
         <activity android:name="my.app.noemi.waiter.SignUpActivity"></activity>
         <activity android:name="my.app.noemi.waiter.AccountSettingsActivity"></activity>
-        <activity android:name="my.app.noemi.waiter.UsernameSettingsActivity"></activity>
-        <activity android:name="my.app.noemi.waiter.PasswordSettingsActivity"></activity>
-        <activity android:name="my.app.noemi.waiter.SearchActivity"></activity>
-        <activity android:name="my.app.noemi.waiter.PostActivity"></activity>
-        <activity android:name="my.app.noemi.waiter.ResultsActivity"></activity>
+        <activity android:name="my.app.noemi.waiter.UsernameSettingsActivity"
+            android:parentActivityName=".AccountSettingsActivity"
+            ></activity>
+        <activity android:name="my.app.noemi.waiter.PasswordSettingsActivity"
+            android:parentActivityName=".AccountSettingsActivity"
+            ></activity>
+        <activity android:name="my.app.noemi.waiter.SearchActivity"
+                android:parentActivityName=".WaitingActivity"
+            ></activity>
+        <activity android:name="my.app.noemi.waiter.PostActivity"
+            android:parentActivityName=".WaitingActivity"
+            ></activity>
+        <activity android:name="my.app.noemi.waiter.ResultsActivity"
+            android:parentActivityName=".SearchActivity"
+            ></activity>
         <activity android:name="my.app.noemi.waiter.PostsActivity"></activity>
         <activity android:name="my.app.noemi.waiter.PostedActivity"></activity>
         <activity android:name="my.app.noemi.waiter.NearbyActivity"></activity>
         <activity android:name="my.app.noemi.waiter.FavoritesActivity"></activity>
+        <activity android:name="my.app.noemi.waiter.ForgotPassword"></activity>
 
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-sdk android:minSdkVersion="11" />
 
 </manifest>
