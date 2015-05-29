@@ -83,7 +83,7 @@
         android:textColor="#ffffff"
         android:background="@drawable/buttons_blue"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="80dp"/>
 
 </LinearLayout>
 <!-- From: file:/C:/Users/Noemi/AndroidStudioProjects/Waiter/app/src/main/res/layout/signuppage_layout.xml -->

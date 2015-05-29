@@ -63,19 +63,19 @@ public class SearchActivity extends ActionBarActivity {
                     ParseQuery<ParseObject> query = ParseQuery.getQuery("Waittime");
                     query.whereEqualTo("zipcode", zip);
                     query.whereEqualTo("partysize", partysize.getValue());
-                    query.whereEqualTo("waittime", waittime.getValue());
+                    query.whereLessThanOrEqualTo("waittime", waittime.getValue());
                     query.orderByDescending("waittime");
                     query.getFirstInBackground(new GetCallback<ParseObject>() {
                         @Override
                         public void done(ParseObject parseObject, ParseException e) {
                             if (parseObject == null) {
-                                Toast.makeText(getApplicationContext(), "Didn't work", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Failed.", Toast.LENGTH_SHORT).show();
                                 Log.d("waittime", "Request failed.");
                             } else {
                                 Log.d("waittime", "Success.");
                                 ParseObject localstore = parseObject;
                                 localstore.pinInBackground();
-                                Toast.makeText(getApplicationContext(), "Worked", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), parseObject.getString("name"), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(SearchActivity.this, ResultsActivity.class);
                                 startActivity(intent);
                             }
@@ -162,4 +162,8 @@ public class SearchActivity extends ActionBarActivity {
 
         }
     };
+
+    @Override
+    public void onBackPressed() {
+    }
 }

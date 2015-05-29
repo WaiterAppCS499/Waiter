@@ -71,6 +71,10 @@ public class HomeActivity extends Activity{
     }
 
     @Override
+    public void onBackPressed() {
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
     }

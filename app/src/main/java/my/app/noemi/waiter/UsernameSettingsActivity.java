@@ -118,4 +118,8 @@ public class UsernameSettingsActivity extends ActionBarActivity {
 
         }
     };
+
+    @Override
+    public void onBackPressed() {
+    }
 }

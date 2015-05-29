@@ -113,4 +113,8 @@ public class PasswordSettingsActivity extends ActionBarActivity{
 
         }
     };
+
+    @Override
+    public void onBackPressed() {
+    }
 }

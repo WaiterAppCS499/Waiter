@@ -148,4 +148,8 @@ public class PostActivity extends ActionBarActivity {
 
         }
     };
+
+    @Override
+    public void onBackPressed() {
+    }
 }

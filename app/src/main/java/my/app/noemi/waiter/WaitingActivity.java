@@ -106,4 +106,8 @@ public class WaitingActivity extends ActionBarActivity {
 
         }
     };
+
+    @Override
+    public void onBackPressed() {
+    }
 }

@@ -154,6 +154,10 @@ public class ResultsActivity extends ActionBarActivity {
 
         }
     };
+
+    @Override
+    public void onBackPressed() {
+    }
 }
 
 

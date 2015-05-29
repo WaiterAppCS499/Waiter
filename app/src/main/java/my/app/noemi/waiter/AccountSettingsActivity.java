@@ -143,4 +143,8 @@ public class AccountSettingsActivity extends ActionBarActivity {
 
         }
     };
+
+    @Override
+    public void onBackPressed() {
+    }
 }
