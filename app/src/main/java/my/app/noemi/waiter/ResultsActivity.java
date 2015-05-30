@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -30,6 +31,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -55,6 +57,9 @@ public class ResultsActivity extends ActionBarActivity {
             queryResults = (ArrayList<String>) savedInstanceState.getSerializable("queryResults");
         }
 
+        Typeface tf = Typeface.createFromAsset(getAssets(),
+                "Roboto-Light.ttf");
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("Results");
@@ -70,7 +75,7 @@ public class ResultsActivity extends ActionBarActivity {
                 @Override
                 public void done(final ParseObject parseObject, ParseException e) {
                     if (e == null) {
-                        names.add(parseObject.getString("name"));
+                        names.add(parseObject.getString("name") + "\nWait time: " + parseObject.get("waittime") + " minutes.");
                         ListView resultListView = (ListView) findViewById(R.id.resultlist);
                         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_list_item_1, names);
                         resultListView.setAdapter(adapter);
@@ -85,7 +90,7 @@ public class ResultsActivity extends ActionBarActivity {
                                 intent.putExtra("zipcode", parseObject.getString("zipcode"));
                                 intent.putExtra("size", parseObject.getNumber("partysize"));
                                 intent.putExtra("time", parseObject.getNumber("waittime"));
-                                intent.putExtra("date", parseObject.getDate("updatedAt"));
+                                intent.putExtra("date", parseObject.getCreatedAt().getTime());
                                 startActivity(intent);
                             }
                         });
@@ -97,6 +102,7 @@ public class ResultsActivity extends ActionBarActivity {
         }
 
         Button button1 = (Button) findViewById(R.id.refine);
+        button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

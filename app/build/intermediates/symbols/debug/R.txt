@@ -400,7 +400,7 @@ int id normal 0x7f09000a
 int id option1 0x7f090044
 int id option2 0x7f090045
 int id partyinfo 0x7f090054
-int id partysize 0x7f090056
+int id partysize 0x7f090055
 int id password 0x7f090047
 int id post 0x7f090053
 int id postTime 0x7f090058
@@ -411,9 +411,9 @@ int id progress_horizontal 0x7f090006
 int id pw 0x7f090069
 int id radio 0x7f09002b
 int id recentTime 0x7f090059
-int id refine 0x7f09005b
+int id refine 0x7f09005a
 int id restaurantname 0x7f09004d
-int id resultlist 0x7f09005a
+int id resultlist 0x7f09005b
 int id scity 0x7f09005d
 int id search 0x7f09005f
 int id search_badge 0x7f090035
@@ -451,7 +451,7 @@ int id useLogo 0x7f090012
 int id username 0x7f090046
 int id wait 0x7f090050
 int id waittime 0x7f090057
-int id waittimeinfo 0x7f090055
+int id waittimeinfo 0x7f090056
 int id withText 0x7f09001a
 int id wrap_content 0x7f09001d
 int id zip 0x7f09004e

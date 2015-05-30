@@ -83,7 +83,6 @@ public class SearchActivity extends ActionBarActivity {
                     query.whereEqualTo("partysize", partysize.getValue());
                     query.whereLessThanOrEqualTo("waittime", waittime.getValue());
                     query.orderByAscending("waittime");
-                    query.orderByAscending("updatedAt");
                     query.findInBackground(new FindCallback<ParseObject>() {
                         public void done(List<ParseObject> list, ParseException e) {
                             if (list == null) {
@@ -104,7 +103,6 @@ public class SearchActivity extends ActionBarActivity {
                     query.whereEqualTo("name", name);
                     query.whereEqualTo("partysize", partysize.getValue());
                     query.orderByAscending("waittime");
-                    query.orderByAscending("updatedAt");
                     query.findInBackground(new FindCallback<ParseObject>() {
                         public void done(List<ParseObject> list, ParseException e) {
                             if (list == null) {
@@ -125,7 +123,6 @@ public class SearchActivity extends ActionBarActivity {
                     query.whereEqualTo("city", city);
                     query.whereEqualTo("partysize", partysize.getValue());
                     query.orderByAscending("waittime");
-                    query.orderByAscending("updatedAt");
                     query.findInBackground(new FindCallback<ParseObject>() {
                         public void done(List<ParseObject> list, ParseException e) {
                             if (list == null) {
@@ -162,7 +159,6 @@ public class SearchActivity extends ActionBarActivity {
         waittime.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-
             }
         });
     }

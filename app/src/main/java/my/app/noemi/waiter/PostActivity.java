@@ -103,7 +103,6 @@ public class PostActivity extends ActionBarActivity {
         waittime.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-
             }
         });
     }

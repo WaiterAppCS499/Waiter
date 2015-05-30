@@ -16,6 +16,7 @@
         android:hint="Restaurant Name"
         android:autoText="false"
         android:singleLine="true"
+        android:imeOptions="actionDone"
         />
 
     <RelativeLayout
@@ -32,7 +33,9 @@
             android:hint="City"
             android:autoText="false"
             android:singleLine="true"
-            android:id="@+id/scity" />
+            android:id="@+id/scity"
+            android:imeOptions="actionDone"
+            />
 
         <EditText
             android:id="@+id/szip"
@@ -45,7 +48,9 @@
             android:singleLine="true"
             android:layout_alignTop="@+id/scity"
             android:layout_toRightOf="@+id/scity"
-            android:layout_toEndOf="@+id/scity" />
+            android:layout_toEndOf="@+id/scity"
+            android:imeOptions="actionDone"
+            />
 
         </RelativeLayout>
 
@@ -89,7 +94,8 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
             android:id="@+id/partysize"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            />
 
         <NumberPicker
             android:layout_width="wrap_content"

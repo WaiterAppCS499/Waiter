@@ -1368,7 +1368,7 @@ containing a value of this type.
         public static final int option1=0x7f090044;
         public static final int option2=0x7f090045;
         public static final int partyinfo=0x7f090054;
-        public static final int partysize=0x7f090056;
+        public static final int partysize=0x7f090055;
         public static final int password=0x7f090047;
         public static final int post=0x7f090053;
         public static final int postTime=0x7f090058;
@@ -1379,9 +1379,9 @@ containing a value of this type.
         public static final int pw=0x7f090069;
         public static final int radio=0x7f09002b;
         public static final int recentTime=0x7f090059;
-        public static final int refine=0x7f09005b;
+        public static final int refine=0x7f09005a;
         public static final int restaurantname=0x7f09004d;
-        public static final int resultlist=0x7f09005a;
+        public static final int resultlist=0x7f09005b;
         public static final int scity=0x7f09005d;
         public static final int search=0x7f09005f;
         public static final int search_badge=0x7f090035;
@@ -1419,7 +1419,7 @@ containing a value of this type.
         public static final int username=0x7f090046;
         public static final int wait=0x7f090050;
         public static final int waittime=0x7f090057;
-        public static final int waittimeinfo=0x7f090055;
+        public static final int waittimeinfo=0x7f090056;
         public static final int withText=0x7f09001a;
         public static final int wrap_content=0x7f09001d;
         public static final int zip=0x7f09004e;

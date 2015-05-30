@@ -16,6 +16,7 @@
         android:hint="Restaurant Name"
         android:autoText="false"
         android:singleLine="true"
+        android:imeOptions="actionDone"
         />
 
     <RelativeLayout
@@ -32,7 +33,9 @@
             android:hint="City"
             android:autoText="false"
             android:singleLine="true"
-            android:id="@+id/city" />
+            android:id="@+id/city"
+            android:imeOptions="actionDone"
+            />
 
         <EditText
             android:id="@+id/zip"
@@ -45,7 +48,9 @@
             android:singleLine="true"
             android:layout_alignTop="@+id/city"
             android:layout_toRightOf="@+id/city"
-            android:layout_toEndOf="@+id/city" />
+            android:layout_toEndOf="@+id/city"
+            android:imeOptions="actionDone"
+            />
 
     </RelativeLayout>
 

@@ -35,9 +35,7 @@
         <activity android:name="my.app.noemi.waiter.ResultsActivity"
             android:parentActivityName=".SearchActivity"
             ></activity>
-        <activity android:name="my.app.noemi.waiter.ResultInfo"
-            android:parentActivityName=".ResultsActivity"
-            ></activity>
+        <activity android:name="my.app.noemi.waiter.ResultInfo"></activity>
         <activity android:name="my.app.noemi.waiter.ForgotPassword"></activity>
 
     </application>
