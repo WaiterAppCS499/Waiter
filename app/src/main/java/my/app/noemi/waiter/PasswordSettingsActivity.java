@@ -25,26 +25,28 @@ import com.parse.RequestPasswordResetCallback;
  * Created by Noemi on 4/20/2015.
  */
 public class PasswordSettingsActivity extends ActionBarActivity{
+    // for haptic feedback
     private Vibrator vb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.password_settings);
+        vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
+        // setting the typeface
         Typeface tf = Typeface.createFromAsset(getAssets(),
                 "Roboto-Light.ttf");
+        final EditText reset = (EditText) findViewById(R.id.toreset);
+        reset.setTypeface(tf);
 
+        // adding action bar
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("Password Settings");
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3fa9f5")));
 
-        vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
-
-        final EditText reset = (EditText) findViewById(R.id.toreset);
-        reset.setTypeface(tf);
-
+        // button code
         Button button1 = (Button) findViewById(R.id.updatepassword);
         button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +69,7 @@ public class PasswordSettingsActivity extends ActionBarActivity{
         });
     }
 
+    // code for action bars
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.settings, menu);
         return true;
@@ -120,6 +123,7 @@ public class PasswordSettingsActivity extends ActionBarActivity{
         }
     };
 
+    // disables the back button on device
     @Override
     public void onBackPressed() {
     }

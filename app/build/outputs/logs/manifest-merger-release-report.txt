@@ -85,46 +85,34 @@ ADDED from AndroidManifest.xml:35:9
 		ADDED from AndroidManifest.xml:36:13
 	android:name
 		ADDED from AndroidManifest.xml:35:19
-activity#my.app.noemi.waiter.PostsActivity
+activity#my.app.noemi.waiter.ResultInfo
 ADDED from AndroidManifest.xml:38:9
 	android:name
 		ADDED from AndroidManifest.xml:38:19
-activity#my.app.noemi.waiter.PostedActivity
+activity#my.app.noemi.waiter.ForgotPassword
 ADDED from AndroidManifest.xml:39:9
 	android:name
 		ADDED from AndroidManifest.xml:39:19
-activity#my.app.noemi.waiter.NearbyActivity
-ADDED from AndroidManifest.xml:40:9
-	android:name
-		ADDED from AndroidManifest.xml:40:19
-activity#my.app.noemi.waiter.FavoritesActivity
-ADDED from AndroidManifest.xml:41:9
-	android:name
-		ADDED from AndroidManifest.xml:41:19
-activity#my.app.noemi.waiter.ForgotPassword
-ADDED from AndroidManifest.xml:42:9
-	android:name
-		ADDED from AndroidManifest.xml:42:19
 uses-permission#android.permission.INTERNET
-ADDED from AndroidManifest.xml:46:5
+ADDED from AndroidManifest.xml:43:5
 	android:name
-		ADDED from AndroidManifest.xml:46:22
+		ADDED from AndroidManifest.xml:43:22
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from AndroidManifest.xml:47:5
+ADDED from AndroidManifest.xml:44:5
 	android:name
-		ADDED from AndroidManifest.xml:47:22
+		ADDED from AndroidManifest.xml:44:22
 uses-permission#android.permission.VIBRATE
-ADDED from AndroidManifest.xml:48:5
+ADDED from AndroidManifest.xml:45:5
 	android:name
-		ADDED from AndroidManifest.xml:48:22
+		ADDED from AndroidManifest.xml:45:22
 uses-sdk
-ADDED from AndroidManifest.xml:49:5
+ADDED from AndroidManifest.xml:46:5
 MERGED from com.android.support:appcompat-v7:22.0.0:20:5
 MERGED from com.android.support:support-v4:22.0.0:20:5
 	android:targetSdkVersion
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
 	android:minSdkVersion
-		ADDED from AndroidManifest.xml:49:15
+		ADDED from AndroidManifest.xml:46:15
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0

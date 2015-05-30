@@ -23,23 +23,21 @@ import com.parse.ParseUser;
  * Created by Noemi on 4/20/2015.
  */
 public class UsernameSettingsActivity extends ActionBarActivity {
+    // For haptic feedback
     private Vibrator vb;
 
+    // On create method for page
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.usernamesettings_layout);
+        vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
+        // Sets typeface
         Typeface tf = Typeface.createFromAsset(getAssets(),
                 "Roboto-Light.ttf");
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle("Username Settings");
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3fa9f5")));
-
-        vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
-
+        // Sets typeface for edit text
         final EditText current = (EditText) findViewById(R.id.currentuser);
         current.setTypeface(tf);
         final EditText newuser = (EditText) findViewById(R.id.newusername);
@@ -47,6 +45,13 @@ public class UsernameSettingsActivity extends ActionBarActivity {
         final EditText pw = (EditText) findViewById(R.id.pw);
         pw.setTypeface(tf);
 
+        // Adds action bar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Username Settings");
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3fa9f5")));
+
+        // Button codde
         Button button1 = (Button) findViewById(R.id.updateusername);
         button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -66,13 +71,13 @@ public class UsernameSettingsActivity extends ActionBarActivity {
                         current.saveInBackground();
                     }
                 }
-
                 Intent intent = new Intent(UsernameSettingsActivity.this, AccountSettingsActivity.class);
                 startActivity(intent);
             }
         });
     }
 
+    // Code for action bars
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.settings, menu);
         return true;
@@ -127,6 +132,7 @@ public class UsernameSettingsActivity extends ActionBarActivity {
         }
     };
 
+    // disables back button on device for navigation
     @Override
     public void onBackPressed() {
     }

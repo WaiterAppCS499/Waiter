@@ -16,6 +16,7 @@
         android:hint="Restaurant Name"
         android:autoText="false"
         android:singleLine="true"
+        android:imeOptions="actionDone"
         />
 
     <RelativeLayout
@@ -32,7 +33,9 @@
             android:hint="City"
             android:autoText="false"
             android:singleLine="true"
-            android:id="@+id/city" />
+            android:id="@+id/city"
+            android:imeOptions="actionDone"
+            />
 
         <EditText
             android:id="@+id/zip"
@@ -45,7 +48,9 @@
             android:singleLine="true"
             android:layout_alignTop="@+id/city"
             android:layout_toRightOf="@+id/city"
-            android:layout_toEndOf="@+id/city" />
+            android:layout_toEndOf="@+id/city"
+            android:imeOptions="actionDone"
+            />
 
     </RelativeLayout>
 
@@ -62,9 +67,10 @@
             android:textColor="#3fa9f5"
             android:layout_marginTop="40dp"
             android:layout_marginLeft="40dp"
-            android:id="@+id/textView" />
+            android:id="@+id/size" />
 
         <TextView
+            android:id="@+id/wait"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Wait Time"
@@ -73,7 +79,7 @@
             android:textColor="#3fa9f5"
             android:layout_marginRight="40dp"
             android:layout_marginEnd="40dp"
-            android:layout_alignTop="@+id/textView"
+            android:layout_alignTop="@+id/size"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
     </RelativeLayout>

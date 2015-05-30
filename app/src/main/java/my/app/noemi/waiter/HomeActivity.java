@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,24 +19,27 @@ import com.parse.ParseUser;
  * Created by Noemi on 4/14/2015.
  */
 public class HomeActivity extends Activity{
+    // for haptic feedback
     private Vibrator vb;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.home_layout);
-
         vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
+        // setting the typeface
         Typeface tf = Typeface.createFromAsset(getAssets(),
                 "Roboto-Light.ttf");
         TextView tv = (TextView) findViewById(R.id.title);
         tv.setTypeface(tf);
 
+        // set typeface for the edit text fields
         final EditText username = (EditText) findViewById(R.id.username);
         username.setTypeface(tf);
         final EditText password = (EditText) findViewById(R.id.password);
         password.setTypeface(tf);
 
+        // button code
         Button button1 = (Button) findViewById(R.id.signin);
         button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -82,10 +84,12 @@ public class HomeActivity extends Activity{
         });
     }
 
+    // disable back button on device
     @Override
     public void onBackPressed() {
     }
 
+    // auto generated code
     @Override
     protected void onResume() {
         super.onResume();

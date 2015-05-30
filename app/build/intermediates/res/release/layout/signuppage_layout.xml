@@ -9,6 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/joint"
         android:text="Join us!"
         android:layout_marginTop="80dp"
         android:layout_marginLeft="51dp"
@@ -83,7 +84,7 @@
         android:textColor="#ffffff"
         android:background="@drawable/buttons_blue"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="80dp"/>
 
 </LinearLayout>
 <!-- From: file:/C:/Users/Noemi/AndroidStudioProjects/Waiter/app/src/main/res/layout/signuppage_layout.xml -->

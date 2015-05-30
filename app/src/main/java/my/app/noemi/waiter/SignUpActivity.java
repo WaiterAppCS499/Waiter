@@ -19,21 +19,23 @@ import com.parse.SignUpCallback;
  * Created by Noemi on 4/20/2015.
  */
 public class SignUpActivity extends Activity {
+    // For haptic feedback
     private Vibrator vb;
 
+    // On create method for page
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signuppage_layout);
-
-        Typeface tf = Typeface.createFromAsset(getAssets(),
-                "Roboto-Light.ttf");
-
         vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
+        // Setting typeface
+        Typeface tf = Typeface.createFromAsset(getAssets(),
+                "Roboto-Light.ttf");
         TextView tv = (TextView) findViewById(R.id.joint);
         tv.setTypeface(tf);
 
+        // setting typeface for edit text
         final EditText firstname = (EditText) findViewById(R.id.firstname);
         firstname.setTypeface(tf);
         final EditText lastname = (EditText) findViewById(R.id.lastname);
@@ -45,12 +47,14 @@ public class SignUpActivity extends Activity {
         final EditText signpass = (EditText) findViewById(R.id.spassword);
         signpass.setTypeface(tf);
 
+        // Button code
         Button button1 = (Button) findViewById(R.id.join);
         button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 vb.vibrate(50);
+                //gets the information for the user signup
                 String first = firstname.getText().toString();
                 String last = lastname.getText().toString();
                 String mail = email.getText().toString();

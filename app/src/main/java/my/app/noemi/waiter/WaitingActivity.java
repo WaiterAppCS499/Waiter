@@ -1,6 +1,5 @@
 package my.app.noemi.waiter;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -23,25 +22,28 @@ import com.parse.ParseUser;
  * Created by Noemi on 4/14/2015.
  */
 public class WaitingActivity extends ActionBarActivity {
+    // For haptic feedback
     private Vibrator vb;
 
+    // On create method for page
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dontkeepthemwaiting_layout);
+        vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
+        // Sets typeface for page
         Typeface tf = Typeface.createFromAsset(getAssets(),
                 "Roboto-Light.ttf");
-
         TextView tv = (TextView) findViewById(R.id.title);
         tv.setTypeface(tf);
 
+        // Adds action bar
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Home");
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3fa9f5")));
 
-        vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
-
+        // Code for buttons
         Button button1 = (Button) findViewById(R.id.option1);
         button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +67,8 @@ public class WaitingActivity extends ActionBarActivity {
         });
     }
 
+
+    // Code for action bar
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.home_settings, menu);
         return true;
@@ -117,6 +121,8 @@ public class WaitingActivity extends ActionBarActivity {
         }
     };
 
+
+    // Disables back button on device for navigation purposes
     @Override
     public void onBackPressed() {
     }

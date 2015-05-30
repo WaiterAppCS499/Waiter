@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#3fa9f5"
+        android:fontFamily="sans-serif-light"
+        android:textSize="25dp"
+        android:text="Name here"
+        android:layout_gravity="left"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        />
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#3fa9f5"
+        android:fontFamily="sans-serif-light"
+        android:textSize="20dp"
+        android:text="City here"
+        android:layout_gravity="left"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        />
+
+        <TextView
+            android:id="@+id/zip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#3fa9f5"
+            android:fontFamily="sans-serif-light"
+            android:textSize="20dp"
+            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="30dp"
+            />
+
+        <TextView
+            android:id="@+id/partyinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#3fa9f5"
+            android:fontFamily="sans-serif-light"
+            android:textSize="20dp"
+            android:text="Party Size"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="36dp"
+            android:layout_below="@+id/zip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/partysize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#3fa9f5"
+        android:fontFamily="sans-serif-light"
+        android:textSize="20dp"
+        android:text="Size"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/partyinfo"
+        android:layout_alignLeft="@+id/partyinfo"
+        android:layout_alignStart="@+id/partyinfo" />
+
+    <TextView
+            android:id="@+id/waittimeinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#3fa9f5"
+            android:fontFamily="sans-serif-light"
+            android:textSize="20dp"
+            android:text="Wait Time"
+            android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+            android:layout_above="@+id/partysize"
+            android:layout_alignRight="@+id/zip"
+            android:layout_alignEnd="@+id/zip" />
+
+    <TextView
+            android:id="@+id/waittime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#3fa9f5"
+            android:fontFamily="sans-serif-light"
+            android:textSize="20dp"
+        android:layout_marginTop="10dp"
+            android:text="Time"
+        android:layout_marginLeft="30dp"
+             />
+
+    <TextView
+        android:id="@+id/postTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="#3fa9f5"
+        android:textSize="20dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginLeft="30dp"
+        android:text="Posted at:"
+        />
+
+    <TextView
+        android:id="@+id/recentTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="#3fa9f5"
+        android:textSize="20dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginLeft="30dp"
+        android:text=""
+        />
+
+    <Button
+        android:id="@+id/refine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Refine"
+        android:textSize="15dp"
+        android:textColor="#ffffff"
+        android:background="@drawable/buttons_orange"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp"
+        />
+
+</LinearLayout><!-- From: file:/C:/Users/Noemi/AndroidStudioProjects/Waiter/app/src/main/res/layout/resultinfo_layout.xml -->

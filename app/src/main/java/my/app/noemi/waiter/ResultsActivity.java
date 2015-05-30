@@ -1,7 +1,5 @@
 package my.app.noemi.waiter;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -12,39 +10,40 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.view.ActionMode;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.GetCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import com.parse.ParseQueryAdapter;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
  * Created by Noemi on 4/21/2015.
  */
 public class ResultsActivity extends ActionBarActivity {
+    // for haptic feedback
     private Vibrator vb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.results_layout);
+        vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
+        // setting typeface
+        Typeface tf = Typeface.createFromAsset(getAssets(),
+                "Roboto-Light.ttf");
+
+        // recieving results forom intent extras
         ArrayList<String> queryResults;
         if (savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
@@ -57,18 +56,16 @@ public class ResultsActivity extends ActionBarActivity {
             queryResults = (ArrayList<String>) savedInstanceState.getSerializable("queryResults");
         }
 
-        Typeface tf = Typeface.createFromAsset(getAssets(),
-                "Roboto-Light.ttf");
-
+        // adds the action bar
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("Results");
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3fa9f5")));
 
-        vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
-
+        // create array list for the result display
         final ArrayList<String> names = new ArrayList<>();
 
+        // query the list of object ids given from the intent and put names into the result diplay arraylist
         for (String id: queryResults){
             ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Waittime");
             query.getInBackground(id, new GetCallback<ParseObject>() {
@@ -80,6 +77,7 @@ public class ResultsActivity extends ActionBarActivity {
                         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_list_item_1, names);
                         resultListView.setAdapter(adapter);
 
+                        // pass results to individual page
                         resultListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -101,6 +99,7 @@ public class ResultsActivity extends ActionBarActivity {
             });
         }
 
+        // button code
         Button button1 = (Button) findViewById(R.id.refine);
         button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +113,7 @@ public class ResultsActivity extends ActionBarActivity {
 
     }
 
+    // action bar code
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.settings, menu);
         return true;
@@ -158,6 +158,7 @@ public class ResultsActivity extends ActionBarActivity {
         }
     };
 
+    // disables back button on device
     @Override
     public void onBackPressed() {
     }

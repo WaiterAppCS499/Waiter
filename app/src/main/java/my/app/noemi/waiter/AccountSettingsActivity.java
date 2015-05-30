@@ -32,21 +32,22 @@ public class AccountSettingsActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.accountsettings_layout);
-
-        Typeface tf = Typeface.createFromAsset(getAssets(),
-                "Roboto-Light.ttf");
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Account Settings");
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3fa9f5")));
-
         vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
+        // setting the typeface
+        Typeface tf = Typeface.createFromAsset(getAssets(),
+                "Roboto-Light.ttf");
         final EditText state = (EditText) findViewById(R.id.state);
         state.setTypeface(tf);
         final EditText city = (EditText) findViewById(R.id.city);
         city.setTypeface(tf);
 
+        // adding the action bar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Account Settings");
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3fa9f5")));
+
+        // button code
         final Button button1 = (Button) findViewById(R.id.updateaccount);
         button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +102,7 @@ public class AccountSettingsActivity extends ActionBarActivity {
         });
     }
 
+    // action bar code
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.settings, menu);
         return true;
@@ -154,6 +156,7 @@ public class AccountSettingsActivity extends ActionBarActivity {
         }
     };
 
+    // disables the back button on the device
     @Override
     public void onBackPressed() {
     }

@@ -1,6 +1,5 @@
 package my.app.noemi.waiter;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -27,27 +26,25 @@ import com.parse.ParseUser;
  * Created by Noemi on 4/21/2015.
  */
 public class PostActivity extends ActionBarActivity {
+    // for haptic feedback
     private Vibrator vb;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.post_layout);
+        vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
+        // setting the typeface
         Typeface tf = Typeface.createFromAsset(getAssets(),
                 "Roboto-Light.ttf");
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle("Post");
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3fa9f5")));
-
-        vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
-
+        // setting typeface for text view
         TextView tv = (TextView) findViewById(R.id.wait);
         tv.setTypeface(tf);
         TextView tv1 = (TextView) findViewById(R.id.size);
         tv1.setTypeface(tf);
 
+        // setting the typeface for the edit text
         final EditText rname = (EditText) findViewById(R.id.restaurantname);
         rname.setTypeface(tf);
         final EditText city = (EditText) findViewById(R.id.city);
@@ -57,6 +54,13 @@ public class PostActivity extends ActionBarActivity {
         final NumberPicker partysize = (NumberPicker) findViewById(R.id.postingsize);
         final NumberPicker waittime = (NumberPicker) findViewById(R.id.postingtime);
 
+        // add action bar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Post");
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3fa9f5")));
+
+        // button code
         Button button1 = (Button) findViewById(R.id.post);
         button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +74,7 @@ public class PostActivity extends ActionBarActivity {
                 if(rn.equals("") && ct.equals("") && z.equals("")){
                     Toast.makeText(getApplicationContext(), "All fields required!", Toast.LENGTH_SHORT).show();
                 }else {
+                    // posts the object to the parse back end
                     ParseObject data = ParseObject.create("Waittime");
                     data.put("name", rn);
                     data.put("city", ct);
@@ -84,7 +89,7 @@ public class PostActivity extends ActionBarActivity {
             }
         });
 
-
+        // number picker listeners
         partysize.setMinValue(1);
         partysize.setMaxValue(10);
         partysize.setWrapSelectorWheel(true);
@@ -107,6 +112,7 @@ public class PostActivity extends ActionBarActivity {
         });
     }
 
+    // code for action bars
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.settings, menu);
         return true;
@@ -162,6 +168,7 @@ public class PostActivity extends ActionBarActivity {
         }
     };
 
+    // disable the back button on the device
     @Override
     public void onBackPressed() {
     }

@@ -1,6 +1,5 @@
 package my.app.noemi.waiter;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -11,7 +10,6 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.view.ActionMode;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
-import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -35,28 +32,26 @@ import java.util.List;
  * Created by Noemi on 4/20/2015.
  */
 public class SearchActivity extends ActionBarActivity {
+    // for haptic feedback
     private Vibrator vb;
+
+    // to hold the result queries
     private ArrayList<String> queryResults = new ArrayList<>();
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.search_layout);
-
-        Typeface tf = Typeface.createFromAsset(getAssets(),
-                "Roboto-Light.ttf");
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle("Search");
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3fa9f5")));
-
         vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
+        // setting the typeface
+        Typeface tf = Typeface.createFromAsset(getAssets(),
+                "Roboto-Light.ttf");
         TextView tv = (TextView) findViewById(R.id.wait);
         tv.setTypeface(tf);
         TextView tv1 = (TextView) findViewById(R.id.size);
         tv1.setTypeface(tf);
 
+        // setting typeface for edit text
         final EditText rname = (EditText) findViewById(R.id.searchname);
         rname.setTypeface(tf);
         final EditText ct = (EditText) findViewById(R.id.scity);
@@ -66,6 +61,13 @@ public class SearchActivity extends ActionBarActivity {
         final NumberPicker partysize = (NumberPicker) findViewById(R.id.partysize);
         final NumberPicker waittime = (NumberPicker) findViewById(R.id.waittime);
 
+        // setting the action bar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Search");
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3fa9f5")));
+
+        // Code for search button, includes search algorithms and passing extras to the result page
         Button button1 = (Button) findViewById(R.id.search);
         button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -141,6 +143,7 @@ public class SearchActivity extends ActionBarActivity {
             }
         });
 
+        // listeners for number pickers
         partysize.setMinValue(1);
         partysize.setMaxValue(10);
         partysize.setWrapSelectorWheel(true);
@@ -163,6 +166,7 @@ public class SearchActivity extends ActionBarActivity {
         });
     }
 
+    // Code for action bars
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.settings, menu);
         return true;
@@ -218,6 +222,7 @@ public class SearchActivity extends ActionBarActivity {
         }
     };
 
+    // disables back button on device for navigation
     @Override
     public void onBackPressed() {
     }
