@@ -2,11 +2,13 @@ package my.app.noemi.waiter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseException;
@@ -24,15 +26,27 @@ public class SignUpActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signuppage_layout);
 
+        Typeface tf = Typeface.createFromAsset(getAssets(),
+                "Roboto-Light.ttf");
+
         vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
+        TextView tv = (TextView) findViewById(R.id.joint);
+        tv.setTypeface(tf);
+
         final EditText firstname = (EditText) findViewById(R.id.firstname);
+        firstname.setTypeface(tf);
         final EditText lastname = (EditText) findViewById(R.id.lastname);
+        lastname.setTypeface(tf);
         final EditText email = (EditText) findViewById(R.id.email);
+        email.setTypeface(tf);
         final EditText signname = (EditText) findViewById(R.id.susername);
+        signname.setTypeface(tf);
         final EditText signpass = (EditText) findViewById(R.id.spassword);
+        signpass.setTypeface(tf);
 
         Button button1 = (Button) findViewById(R.id.join);
+        button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

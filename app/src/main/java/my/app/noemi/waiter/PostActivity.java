@@ -3,6 +3,7 @@ package my.app.noemi.waiter;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseObject;
@@ -31,6 +33,9 @@ public class PostActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.post_layout);
 
+        Typeface tf = Typeface.createFromAsset(getAssets(),
+                "Roboto-Light.ttf");
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("Post");
@@ -38,13 +43,22 @@ public class PostActivity extends ActionBarActivity {
 
         vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
+        TextView tv = (TextView) findViewById(R.id.wait);
+        tv.setTypeface(tf);
+        TextView tv1 = (TextView) findViewById(R.id.size);
+        tv1.setTypeface(tf);
+
         final EditText rname = (EditText) findViewById(R.id.restaurantname);
+        rname.setTypeface(tf);
         final EditText city = (EditText) findViewById(R.id.city);
+        city.setTypeface(tf);
         final EditText zip = (EditText) findViewById(R.id.zip);
+        zip.setTypeface(tf);
         final NumberPicker partysize = (NumberPicker) findViewById(R.id.postingsize);
         final NumberPicker waittime = (NumberPicker) findViewById(R.id.postingtime);
 
         Button button1 = (Button) findViewById(R.id.post);
+        button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

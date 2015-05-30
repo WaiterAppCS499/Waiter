@@ -8,6 +8,7 @@
 
     <TextView
         android:text="WAITER"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -15,7 +16,7 @@
         android:layout_marginBottom="80dp"
         android:textSize="70dp"
         android:textColor="#3fa9f5"
-        android:fontFamily="sans-serif-light"/>
+        />
 
     <EditText
         android:id="@+id/username"

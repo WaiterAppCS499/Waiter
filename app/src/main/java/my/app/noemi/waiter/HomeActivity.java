@@ -2,12 +2,14 @@ package my.app.noemi.waiter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
@@ -26,10 +28,18 @@ public class HomeActivity extends Activity{
 
         vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
+        Typeface tf = Typeface.createFromAsset(getAssets(),
+                "Roboto-Light.ttf");
+        TextView tv = (TextView) findViewById(R.id.title);
+        tv.setTypeface(tf);
+
         final EditText username = (EditText) findViewById(R.id.username);
+        username.setTypeface(tf);
         final EditText password = (EditText) findViewById(R.id.password);
+        password.setTypeface(tf);
 
         Button button1 = (Button) findViewById(R.id.signin);
+        button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +61,7 @@ public class HomeActivity extends Activity{
         });
 
         Button button2 = (Button) findViewById(R.id.signup);
+        button2.setTypeface(tf);
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 vb.vibrate(50);
@@ -60,6 +71,7 @@ public class HomeActivity extends Activity{
         });
 
         Button button3 = (Button) findViewById(R.id.forgotpw);
+        button3.setTypeface(tf);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

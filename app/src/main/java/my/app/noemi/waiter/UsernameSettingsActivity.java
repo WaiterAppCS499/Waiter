@@ -2,6 +2,7 @@ package my.app.noemi.waiter;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -29,6 +30,9 @@ public class UsernameSettingsActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.usernamesettings_layout);
 
+        Typeface tf = Typeface.createFromAsset(getAssets(),
+                "Roboto-Light.ttf");
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("Username Settings");
@@ -37,10 +41,14 @@ public class UsernameSettingsActivity extends ActionBarActivity {
         vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
         final EditText current = (EditText) findViewById(R.id.currentuser);
+        current.setTypeface(tf);
         final EditText newuser = (EditText) findViewById(R.id.newusername);
+        newuser.setTypeface(tf);
         final EditText pw = (EditText) findViewById(R.id.pw);
+        pw.setTypeface(tf);
 
         Button button1 = (Button) findViewById(R.id.updateusername);
+        button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

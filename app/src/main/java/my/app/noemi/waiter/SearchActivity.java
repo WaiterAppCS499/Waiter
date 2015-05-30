@@ -3,6 +3,7 @@ package my.app.noemi.waiter;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -17,23 +18,32 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Noemi on 4/20/2015.
  */
 public class SearchActivity extends ActionBarActivity {
     private Vibrator vb;
+    private ArrayList<String> queryResults = new ArrayList<>();
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.search_layout);
+
+        Typeface tf = Typeface.createFromAsset(getAssets(),
+                "Roboto-Light.ttf");
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -42,13 +52,22 @@ public class SearchActivity extends ActionBarActivity {
 
         vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
+        TextView tv = (TextView) findViewById(R.id.wait);
+        tv.setTypeface(tf);
+        TextView tv1 = (TextView) findViewById(R.id.size);
+        tv1.setTypeface(tf);
+
         final EditText rname = (EditText) findViewById(R.id.searchname);
+        rname.setTypeface(tf);
         final EditText ct = (EditText) findViewById(R.id.scity);
+        ct.setTypeface(tf);
         final EditText z = (EditText) findViewById(R.id.szip);
+        z.setTypeface(tf);
         final NumberPicker partysize = (NumberPicker) findViewById(R.id.partysize);
         final NumberPicker waittime = (NumberPicker) findViewById(R.id.waittime);
 
         Button button1 = (Button) findViewById(R.id.search);
+        button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,26 +76,66 @@ public class SearchActivity extends ActionBarActivity {
                 String city = ct.getText().toString();
                 String zip = z.getText().toString();
 
-                if(zip.equals("")){
-                    Toast.makeText(getApplicationContext(),"Please specify a zip code!", Toast.LENGTH_SHORT).show();
-                }else {
+                // Search by waittime and partysize in zipcode area
+                if (name.equals("") && waittime.getValue() > 1){
                     ParseQuery<ParseObject> query = ParseQuery.getQuery("Waittime");
                     query.whereEqualTo("zipcode", zip);
                     query.whereEqualTo("partysize", partysize.getValue());
                     query.whereLessThanOrEqualTo("waittime", waittime.getValue());
-                    query.orderByDescending("waittime");
-                    query.getFirstInBackground(new GetCallback<ParseObject>() {
-                        @Override
-                        public void done(ParseObject parseObject, ParseException e) {
-                            if (parseObject == null) {
-                                Toast.makeText(getApplicationContext(), "Failed.", Toast.LENGTH_SHORT).show();
-                                Log.d("waittime", "Request failed.");
+                    query.orderByAscending("waittime");
+                    query.orderByAscending("updatedAt");
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        public void done(List<ParseObject> list, ParseException e) {
+                            if (list == null) {
+                                Toast.makeText(getApplicationContext(), "No results to show.", Toast.LENGTH_SHORT).show();
                             } else {
-                                Log.d("waittime", "Success.");
-                                ParseObject localstore = parseObject;
-                                localstore.pinInBackground();
-                                Toast.makeText(getApplicationContext(), parseObject.getString("name"), Toast.LENGTH_SHORT).show();
+                                for (ParseObject p : list){
+                                    queryResults.add(p.getObjectId());
+                                }
                                 Intent intent = new Intent(SearchActivity.this, ResultsActivity.class);
+                                intent.putExtra("queryResults", queryResults);
+                                startActivity(intent);
+                            }
+                        }
+                    });
+                // Search by name and partysize
+                }else if (city.equals("") && zip.equals("")){
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("Waittime");
+                    query.whereEqualTo("name", name);
+                    query.whereEqualTo("partysize", partysize.getValue());
+                    query.orderByAscending("waittime");
+                    query.orderByAscending("updatedAt");
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        public void done(List<ParseObject> list, ParseException e) {
+                            if (list == null) {
+                                Toast.makeText(getApplicationContext(), "No results to show.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                for (ParseObject p : list){
+                                    queryResults.add(p.getObjectId());
+                                }
+                                Intent intent = new Intent(SearchActivity.this, ResultsActivity.class);
+                                intent.putExtra("queryResults", queryResults);
+                                startActivity(intent);
+                            }
+                        }
+                    });
+                // Search by city and partysize
+                }else if (zip.equals("") && name.equals("")){
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("Waittime");
+                    query.whereEqualTo("city", city);
+                    query.whereEqualTo("partysize", partysize.getValue());
+                    query.orderByAscending("waittime");
+                    query.orderByAscending("updatedAt");
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        public void done(List<ParseObject> list, ParseException e) {
+                            if (list == null) {
+                                Toast.makeText(getApplicationContext(), "No results to show.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                for (ParseObject p : list){
+                                    queryResults.add(p.getObjectId());
+                                }
+                                Intent intent = new Intent(SearchActivity.this, ResultsActivity.class);
+                                intent.putExtra("queryResults", queryResults);
                                 startActivity(intent);
                             }
                         }

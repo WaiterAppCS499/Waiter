@@ -17,13 +17,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.parse.GetCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
+
+import java.util.ArrayList;
 
 /**
  * Created by Noemi on 4/21/2015.
@@ -31,13 +38,22 @@ import com.parse.ParseQueryAdapter;
 public class ResultsActivity extends ActionBarActivity {
     private Vibrator vb;
 
-    private ParseQueryAdapter<Waittime> mainAdapter;
-    private LayoutInflater inflater;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.results_layout);
+
+        ArrayList<String> queryResults;
+        if (savedInstanceState == null){
+            Bundle extras = getIntent().getExtras();
+            if (extras == null){
+                queryResults = null;
+            }else {
+                queryResults = extras.getStringArrayList("queryResults");
+            }
+        }else {
+            queryResults = (ArrayList<String>) savedInstanceState.getSerializable("queryResults");
+        }
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -46,32 +62,39 @@ public class ResultsActivity extends ActionBarActivity {
 
         vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
-        ParseQueryAdapter.QueryFactory<Waittime> factory = new ParseQueryAdapter.QueryFactory<Waittime>(){
-            public ParseQuery<Waittime> create(){
-                ParseQuery<Waittime> query = Waittime.getQuery();
-                try {
-                    query.setLimit(1);
-                    query.getFirst();
-                } catch (ParseException e) {
-                    e.printStackTrace();
+        final ArrayList<String> names = new ArrayList<>();
+
+        for (String id: queryResults){
+            ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Waittime");
+            query.getInBackground(id, new GetCallback<ParseObject>() {
+                @Override
+                public void done(final ParseObject parseObject, ParseException e) {
+                    if (e == null) {
+                        names.add(parseObject.getString("name"));
+                        ListView resultListView = (ListView) findViewById(R.id.resultlist);
+                        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_list_item_1, names);
+                        resultListView.setAdapter(adapter);
+
+                        resultListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                vb.vibrate(50);
+                                Intent intent = new Intent(ResultsActivity.this, ResultInfo.class);
+                                intent.putExtra("name", parseObject.getString("name"));
+                                intent.putExtra("city", parseObject.getString("city"));
+                                intent.putExtra("zipcode", parseObject.getString("zipcode"));
+                                intent.putExtra("size", parseObject.getNumber("partysize"));
+                                intent.putExtra("time", parseObject.getNumber("waittime"));
+                                intent.putExtra("date", parseObject.getDate("updatedAt"));
+                                startActivity(intent);
+                            }
+                        });
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Something went wrong.", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                return query;
-            }
-        };
-
-        inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mainAdapter = new ResultListAdapter(this, factory);
-        mainAdapter.setTextKey("name");
-
-        ListView resultListView = (ListView) findViewById(R.id.resultlist);
-        resultListView.setAdapter(mainAdapter);
-
-        resultListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
+            });
+        }
 
         Button button1 = (Button) findViewById(R.id.refine);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -83,32 +106,6 @@ public class ResultsActivity extends ActionBarActivity {
             }
         });
 
-    }
-    private class ResultListAdapter extends ParseQueryAdapter<Waittime>{
-        public ResultListAdapter(Context context, ParseQueryAdapter.QueryFactory<Waittime> queryFactory){
-            super(context, queryFactory);
-        }
-
-        @Override
-        public View getItemView(Waittime waittime, View view, ViewGroup parent){
-            ViewHolder holder;
-            if (view == null){
-                view = inflater.inflate(R.layout.abc_list_menu_item_layout, parent, false);
-                holder = new ViewHolder();
-                holder.waittimeName = (TextView) view.findViewById(R.id.title);
-                view.setTag(holder);
-            }else {
-                holder = (ViewHolder) view.getTag();
-            }
-
-            TextView name = holder.waittimeName;
-            name.setText(waittime.getName());
-            return view;
-        }
-    }
-
-    private static class ViewHolder{
-        TextView waittimeName;
     }
 
     public boolean onCreateOptionsMenu(Menu menu){

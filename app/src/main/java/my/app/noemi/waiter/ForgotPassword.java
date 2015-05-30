@@ -2,6 +2,7 @@ package my.app.noemi.waiter;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -31,6 +32,9 @@ public class ForgotPassword extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.password_settings);
 
+        Typeface tf = Typeface.createFromAsset(getAssets(),
+                "Roboto-Light.ttf");
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Reset Password");
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3fa9f5")));
@@ -38,8 +42,10 @@ public class ForgotPassword extends ActionBarActivity{
         vb = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
         final EditText reset = (EditText) findViewById(R.id.toreset);
+        reset.setTypeface(tf);
 
         Button button1 = (Button) findViewById(R.id.updatepassword);
+        button1.setTypeface(tf);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
